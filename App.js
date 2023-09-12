@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import New from './Components/New'
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>D!t Me FPT Mang nhu cc </Text>
+      <New />
       <StatusBar style="auto" />
     </View>
   );
@@ -16,9 +16,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-
+    ...Platform.select({
+      ios: {
+        backgroundColor: 'yellow',
+      }, android: {
+        backgroundColor: '#234234',
+      }, default: {
+        backgroundColor: 'red',
+      }
+    }
+    )
   },
-  text: {
-    color: '#fff',
-  }
 });
+
+
+
